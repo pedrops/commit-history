@@ -1,12 +1,13 @@
 import "./App.css";
 import Commits from "./Commits";
+import NavigationBar from "./NavigationBar";
 
 function App() {
   return (
-      <header>
-        <div style={{ height: 400, width: "100%" }}>
+    //<header className="App-header">
+    <header>
+          <NavigationBar />
           <Commits />
-        </div>
       </header>
   );
 }

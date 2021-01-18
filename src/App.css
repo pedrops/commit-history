@@ -24,6 +24,20 @@
   color: white;
 }
 
+.Grid-Style {
+  background-color: #282c34;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: "100%";
+}
+
+.Grid-Header {
+  background-color: #282c34;
+  justify-content: center;
+  color: white;
+}
+
 .App-link {
   color: #61dafb;
 }
