@@ -5,12 +5,10 @@ import NavigationBar from "./NavigationBar";
 
 function App() {
   return (
-    //<header className="App-header">
     <header>
       <NavigationBar />
       <Commits />
       <div style= {{"margin-top": "400px"}}>
-        <Diff />
       </div>
     </header>
   );

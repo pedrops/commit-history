@@ -32,6 +32,14 @@
   width: "100%";
 }
 
+.Grid-Style-Secondary {
+  align-items: center;
+  justify-content: center;
+  color: black;
+  width: "100%";
+  margin-top: 400px;
+}
+
 .Grid-Header {
   background-color: #282c34;
   justify-content: center;
