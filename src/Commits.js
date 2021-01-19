@@ -12,7 +12,8 @@ class Commits extends React.Component {
         {field: "authorEmail", headerName: "AUTHOR EMAIL", flex:1, headerClassName:"Grid-Header"},
         {field: "message", headerName: "COMMIT MESSAGE", flex:1, headerClassName:"Grid-Header"},
         {field: "date", headerName: "DATE", flex:1, headerClassName:"Grid-Header"},
-    ]
+
+    ],
   };
 
   componentDidMount() {
@@ -29,13 +30,18 @@ class Commits extends React.Component {
     });
   }
 
+  onClickRow = rowInfo => {
+    const sha = rowInfo.row.sha;
+  }
+
   render() {
     return (
       <div className="Grid-Style">
         <DataGrid autoHeight 
           rows={this.state.commits}
           columns={this.state.columns}
-          pageSize={5}          
+          pageSize={5}
+          onRowClick = {this.onClickRow}
         />
       </div>
     );
