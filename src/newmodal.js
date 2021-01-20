@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleModal(props) {
    
   const {dataFromParent, openPopUp, handleClose} = props;
+
+  const {sha, files} = dataFromParent? dataFromParent :{sha:'', files: []};
+
   console.log(dataFromParent);
 
   const classes = useStyles();
@@ -76,11 +79,11 @@ export default function SimpleModal(props) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h3 id="simple-modal-title">Sha: {dataFromParent.sha}</h3>
+      <h3 id="simple-modal-title">Sha: {sha}</h3>
       <p id="simple-modal-description">
       <DataGrid
               autoHeight
-              rows={dataFromParent.files}
+              rows={files}
               columns={columnsModal}
               pageSize={5}
             />
