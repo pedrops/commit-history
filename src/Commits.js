@@ -2,9 +2,7 @@ import React from "react";
 import axios from "axios";
 import config from "./environment";
 import { DataGrid } from "@material-ui/data-grid";
-import Diff from "./Diff";
-import SimpleModal from "./newmodal";
-import { Button, Dialog, Modal } from "@material-ui/core";
+import SimpleModal from "./Modal";
 
 class Commits extends React.Component {
   state = {
@@ -41,7 +39,7 @@ class Commits extends React.Component {
         headerClassName: "Grid-Header",
       },
     ],
-    sha: '',
+    sha: "",
     openModal: false,
   };
 
@@ -66,7 +64,6 @@ class Commits extends React.Component {
   onClickRow = (rowInfo) => {
     const sha = rowInfo.row.sha;
     const openModal = true;
-   
 
     const columnsModal = [
       {
@@ -101,7 +98,7 @@ class Commits extends React.Component {
       },
     ];
 
-    this.setState({sha, openModal, columnsModal})
+    this.setState({ sha, openModal, columnsModal });
     axios
       .get(
         `https://api.github.com/repos/${config.gitUserName}/${config.gitRepoName}/commits/${this.state.sha}`
@@ -112,14 +109,12 @@ class Commits extends React.Component {
         fileDiffs.forEach((element) => {
           element.id = Math.random();
         });
-        this.setState({ fileDiffs , commitResult});
+        this.setState({ fileDiffs, commitResult });
       });
-
-
   };
   onClickModalClose = () => {
     const openModal = false;
-    this.setState({openModal})
+    this.setState({ openModal });
   };
 
   render() {
@@ -132,19 +127,11 @@ class Commits extends React.Component {
           pageSize={5}
           onRowClick={this.onClickRow}
         />
-        <SimpleModal dataFromParent={this.state.commitResult} openPopUp = {this.state.openModal} handleClose = {this.onClickModalClose}></SimpleModal>
-        {/* <Dialog open = {this.state.openModal} 
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        onClose={this.onClickModalClose}>
-          <div>
-            <h2>Sha: {this.state.sha}</h2><br/>
-            <label></label><br/>
-            
-          </div>
-        </Dialog> */}
-        
-        {/* <Diff dataFromParent={this.state.sha} openModal = {this.state.openModal} /> */}
+        <SimpleModal
+          dataFromParent={this.state.commitResult}
+          openPopUp={this.state.openModal}
+          handleClose={this.onClickModalClose}
+        ></SimpleModal>
       </div>
     );
   }

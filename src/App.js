@@ -1,6 +1,5 @@
 import "./App.css";
 import Commits from "./Commits";
-import Diff from "./Diff";
 import NavigationBar from "./NavigationBar";
 
 function App() {
@@ -8,8 +7,6 @@ function App() {
     <header>
       <NavigationBar />
       <Commits />
-      <div style= {{"margin-top": "400px"}}>
-      </div>
     </header>
   );
 }
