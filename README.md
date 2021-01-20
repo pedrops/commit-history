@@ -20,3 +20,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - The project list commits by default from `pedrops` git user and `commit-history` repository(this might be configured with another account using `environment.js` file).
 
 - Once the commit list is displayed the modified files from each commit can be displayed as well clicking each row.
+
+- The project is already deployed in Heroku and can be visited here: https://commit-history.herokuapp.com/
